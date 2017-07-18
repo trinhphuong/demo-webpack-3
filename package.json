@@ -18,6 +18,8 @@
   },
   "homepage": "https://github.com/trinhphuong/demo-webpack-3#readme",
   "devDependencies": {
+    "css-loader": "^0.28.4",
+    "style-loader": "^0.18.2",
     "webpack": "^3.3.0"
   },
   "dependencies": {
