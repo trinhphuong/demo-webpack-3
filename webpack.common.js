@@ -6,12 +6,12 @@ const publicPath = '';
 module.exports = {
     entry: {
         app: './src/index.js',
-        print: './src/print.js'
     },
 
     output: {
-        path: path.resolve(__dirname, 'dist'),
         filename: '[name].bundle.js',
+        path: path.resolve(__dirname, 'dist'),
+        chunkFilename: '[name].bundle.js',
         publicPath: publicPath,
         sourceMapFilename: '[name].map'
     },
@@ -23,7 +23,7 @@ module.exports = {
 
     plugins: [
         new HtmlWebpackPlugin({
-            title: 'Output Management'
+            title: 'Code Splitting'
         }),
         new CleanWebpackPlugin(['dist'])
     ]
