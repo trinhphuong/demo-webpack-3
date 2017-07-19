@@ -28,11 +28,11 @@ module.exports = {
                             mozjpeg: {
                                 quality: 65
                             },
-                            pngquant:{
+                            pngquant: {
                                 quality: "65-90",
                                 speed: 4
                             },
-                            svgo:{
+                            svgo: {
                                 plugins: [
                                     {
                                         removeViewBox: false
@@ -50,6 +50,18 @@ module.exports = {
                 test: /\.(woff|woff2|eot|ttf|otf)$/,
                 use: [
                     'file-loader'
+                ]
+            },
+            {
+                test: /\.(csv|tsv)$/,
+                use: [
+                    'csv-loader'
+                ]
+            },
+            {
+                test: /\.xml$/,
+                use: [
+                    'xml-loader'
                 ]
             }
         ]
