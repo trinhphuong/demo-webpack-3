@@ -1,11 +1,19 @@
-function getComponent() {
-    return import(/* webpackChunkName: "lodash" */ 'lodash').then(_ => {
-        var element = document.createElement('div');
-        element.innerHTML = _.join(['Hello', 'webpack'], ' ');
-        return element;
-    }).catch(error => 'An error accurred while loading the component'
-    );
+import _ from 'lodash';
+function component() {
+    var element = document.createElement('div');
+    var button = document.createElement('button');
+    var br = document.createElement('br');
+    button.innerHTML = 'Click me and look at the console';
+
+    element.appendChild(br);
+    element.appendChild(button);
+
+    button.onclick = e => import(/* webpackChunkName: "print" */ './print').then(module => {
+        var print = module.default;
+        print();
+    });
+
+    return element;
 }
-getComponent().then(component => {
-    document.body.appendChild(component);
-})
+
+document.body.appendChild(component());
