@@ -18,30 +18,10 @@ module.exports = {
             {
                 test: /\.(png|svg|jpg|gif)$/i,
                 use: [
-                    'file-loader',
                     {
-                        loader: 'image-webpack-loader',
-                        query: {
-                            progressive: true,
-                            optimizationLevel: 7,
-                            interlaced: false,
-                            mozjpeg: {
-                                quality: 65
-                            },
-                            pngquant:{
-                                quality: "65-90",
-                                speed: 4
-                            },
-                            svgo:{
-                                plugins: [
-                                    {
-                                        removeViewBox: false
-                                    },
-                                    {
-                                        removeEmptyAttrs: false
-                                    }
-                                ]
-                            }
+                        loader: 'url-loader',
+                        options: {
+                            limit: 8192000
                         }
                     }
                 ]
